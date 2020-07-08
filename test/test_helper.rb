@@ -71,3 +71,16 @@ def sign_up_user(name_u, name, e, p1, p2)
   fill_in('Password confirmation', with: p2)
   click_button('Sign up')
 end
+
+def login_user(str_login, str_pwd, status_remember)
+  visit root_path
+  click_on 'Login'
+  fill_in('Login', with: str_login)
+  fill_in('Password', with: str_pwd)
+  if status_remember == true
+    check('Remember me')
+  else
+    uncheck('Remember me')
+  end
+  click_button('Log in')
+end

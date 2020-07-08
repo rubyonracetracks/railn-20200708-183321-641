@@ -22,9 +22,9 @@
 #          new_admin_unlock GET    /admins/unlock/new(.:format)                                                             devise/unlocks#new
 #              admin_unlock GET    /admins/unlock(.:format)                                                                 devise/unlocks#show
 #                           POST   /admins/unlock(.:format)                                                                 devise/unlocks#create
-#          new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
-#              user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
-#      destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+#          new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
+#              user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
+#      destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
 #         new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
 #        edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
 #             user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
@@ -58,7 +58,8 @@ Rails.application.routes.draw do
 
   # BEGIN: user section
   devise_for :users,
-             controllers: { registrations: 'users/registrations' }
+             controllers: { registrations: 'users/registrations',
+                            sessions: 'users/sessions' }
   # END: user section
 
   # BEGIN: static pages
