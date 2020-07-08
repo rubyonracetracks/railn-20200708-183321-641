@@ -47,6 +47,7 @@
 #              search_users POST   /users/search(.:format)                                                                  users#index
 #                     users GET    /users(.:format)                                                                         users#index
 #                      user GET    /users/:id(.:format)                                                                     users#show
+#                           DELETE /users/:id(.:format)                                                                     users#destroy
 #                      root GET    /                                                                                        static_pages#home
 #                     about GET    /about(.:format)                                                                         static_pages#about
 #                   contact GET    /contact(.:format)                                                                       static_pages#contact
@@ -74,7 +75,7 @@ Rails.application.routes.draw do
                             passwords: 'users/passwords',
                             confirmations: 'users/confirmations',
                             unlocks: 'users/unlocks' }
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :destroy] do
     root to: 'users#index'
     collection { post :search, to: 'users#index' }
   end
