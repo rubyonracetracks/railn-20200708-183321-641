@@ -136,3 +136,5 @@ gem 'pry-rails', '0.3.9' # Improves the screen output in the Rails console
 gem 'method_source', '0.9.2' # pry dependency, pinned because version 1.0.0 causes problems with rails generate
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
+
+gem 'bootstrap-sass', '3.4.1' # Bootstrap styling
