@@ -9,13 +9,13 @@
 #            admin_password PATCH  /admins/password(.:format)                                                               devise/passwords#update
 #                           PUT    /admins/password(.:format)                                                               devise/passwords#update
 #                           POST   /admins/password(.:format)                                                               devise/passwords#create
-# cancel_admin_registration GET    /admins/cancel(.:format)                                                                 devise/registrations#cancel
-#    new_admin_registration GET    /admins/sign_up(.:format)                                                                devise/registrations#new
-#   edit_admin_registration GET    /admins/edit(.:format)                                                                   devise/registrations#edit
-#        admin_registration PATCH  /admins(.:format)                                                                        devise/registrations#update
-#                           PUT    /admins(.:format)                                                                        devise/registrations#update
-#                           DELETE /admins(.:format)                                                                        devise/registrations#destroy
-#                           POST   /admins(.:format)                                                                        devise/registrations#create
+# cancel_admin_registration GET    /admins/cancel(.:format)                                                                 admins/registrations#cancel
+#    new_admin_registration GET    /admins/sign_up(.:format)                                                                admins/registrations#new
+#   edit_admin_registration GET    /admins/edit(.:format)                                                                   admins/registrations#edit
+#        admin_registration PATCH  /admins(.:format)                                                                        admins/registrations#update
+#                           PUT    /admins(.:format)                                                                        admins/registrations#update
+#                           DELETE /admins(.:format)                                                                        admins/registrations#destroy
+#                           POST   /admins(.:format)                                                                        admins/registrations#create
 #    new_admin_confirmation GET    /admins/confirmation/new(.:format)                                                       devise/confirmations#new
 #        admin_confirmation GET    /admins/confirmation(.:format)                                                           devise/confirmations#show
 #                           POST   /admins/confirmation(.:format)                                                           devise/confirmations#create
@@ -54,7 +54,10 @@
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  devise_for :admins
+  # BEGIN: admin section
+  devise_for :admins,
+             controllers: { registrations: 'admins/registrations' }
+  # END: admin section
 
   # BEGIN: user section
   devise_for :users,
