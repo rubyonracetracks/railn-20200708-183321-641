@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+echo '---------------------------------'
+echo 'bundle exec rake db:migrate:reset'
+docker-compose run --rm web bundle exec rake db:migrate:reset
+
+echo '------------------------'
+echo 'bundle exec rake db:seed'
+docker-compose run --rm web bundle exec rake db:seed
+
