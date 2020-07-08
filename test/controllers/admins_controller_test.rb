@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 require 'test_helper'
 
 class AdminsControllerTest < ActionDispatch::IntegrationTest
@@ -106,4 +107,92 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
   # END: index-super_admin
   # END: INDEX
+
+  # BEGIN: DELETE
+  # BEGIN: delete-public
+  test 'should not allow visitor to delete admin' do
+    assert_no_difference 'Admin.count' do
+      delete admin_path(@a5)
+      assert_redirected_to root_path
+      delete admin_path(@a6)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-public
+
+  # BEGIN: delete-user
+  test 'should not allow user to delete admin' do
+    assert_no_difference 'Admin.count' do
+      sign_in @u1, scope: :user
+      delete admin_path(@a5)
+      assert_redirected_to root_path
+      delete admin_path(@a6)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-user
+
+  # BEGIN: delete-self-regular
+  # NOTE: regular admin can delete self through edit registration form
+  test 'should not allow regular admin to delete self' do
+    assert_no_difference 'Admin.count' do
+      sign_in @a6, scope: :admin
+      delete admin_path(@a6)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-self-regular
+
+  # BEGIN: delete-self-super
+  # NOTE: super admin can delete self through edit registration form
+  test 'should not allow super admin to delete self' do
+    assert_no_difference 'Admin.count' do
+      sign_in @a5, scope: :admin
+      delete admin_path(@a5)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-self-super
+
+  # BEGIN: delete-regular-regular
+  test 'should not allow regular admin to delete another regular admin' do
+    assert_no_difference 'Admin.count' do
+      sign_in @a4, scope: :admin
+      delete admin_path(@a6)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-regular-regular
+
+  # BEGIN: delete-regular-super
+  test 'should not allow regular admin to delete super admin' do
+    assert_no_difference 'Admin.count' do
+      sign_in @a6, scope: :admin
+      delete admin_path(@a5)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-regular-super
+
+  # BEGIN: delete-super-super
+  test 'should not allow super admin to delete another super admin' do
+    assert_no_difference 'Admin.count' do
+      sign_in @a1, scope: :admin
+      delete admin_path(@a5)
+      assert_redirected_to root_path
+    end
+  end
+  # END: delete-super-super
+
+  # BEGIN: delete-super-regular
+  test 'should allow super admin to delete regular admin' do
+    assert_difference 'Admin.count', -1 do
+      sign_in @a5, scope: :admin
+      delete admin_path(@a6)
+      assert_redirected_to admins_path
+    end
+  end
+  # END: delete-super-regular
+  # END: DELETE
 end
+# rubocop:enable Metrics/ClassLength
