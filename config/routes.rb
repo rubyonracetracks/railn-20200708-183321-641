@@ -37,9 +37,9 @@
 #                           PUT    /users(.:format)                                                                         users/registrations#update
 #                           DELETE /users(.:format)                                                                         users/registrations#destroy
 #                           POST   /users(.:format)                                                                         users/registrations#create
-#     new_user_confirmation GET    /users/confirmation/new(.:format)                                                        devise/confirmations#new
-#         user_confirmation GET    /users/confirmation(.:format)                                                            devise/confirmations#show
-#                           POST   /users/confirmation(.:format)                                                            devise/confirmations#create
+#     new_user_confirmation GET    /users/confirmation/new(.:format)                                                        users/confirmations#new
+#         user_confirmation GET    /users/confirmation(.:format)                                                            users/confirmations#show
+#                           POST   /users/confirmation(.:format)                                                            users/confirmations#create
 #           new_user_unlock GET    /users/unlock/new(.:format)                                                              devise/unlocks#new
 #               user_unlock GET    /users/unlock(.:format)                                                                  devise/unlocks#show
 #                           POST   /users/unlock(.:format)                                                                  devise/unlocks#create
@@ -60,7 +60,8 @@ Rails.application.routes.draw do
   devise_for :users,
              controllers: { registrations: 'users/registrations',
                             sessions: 'users/sessions',
-                            passwords: 'users/passwords' }
+                            passwords: 'users/passwords',
+                            confirmations: 'users/confirmations' }
   # END: user section
 
   # BEGIN: static pages
