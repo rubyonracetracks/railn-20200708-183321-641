@@ -40,9 +40,9 @@
 #     new_user_confirmation GET    /users/confirmation/new(.:format)                                                        users/confirmations#new
 #         user_confirmation GET    /users/confirmation(.:format)                                                            users/confirmations#show
 #                           POST   /users/confirmation(.:format)                                                            users/confirmations#create
-#           new_user_unlock GET    /users/unlock/new(.:format)                                                              devise/unlocks#new
-#               user_unlock GET    /users/unlock(.:format)                                                                  devise/unlocks#show
-#                           POST   /users/unlock(.:format)                                                                  devise/unlocks#create
+#           new_user_unlock GET    /users/unlock/new(.:format)                                                              users/unlocks#new
+#               user_unlock GET    /users/unlock(.:format)                                                                  users/unlocks#show
+#                           POST   /users/unlock(.:format)                                                                  users/unlocks#create
 #                      root GET    /                                                                                        static_pages#home
 #                     about GET    /about(.:format)                                                                         static_pages#about
 #                   contact GET    /contact(.:format)                                                                       static_pages#contact
@@ -61,7 +61,8 @@ Rails.application.routes.draw do
              controllers: { registrations: 'users/registrations',
                             sessions: 'users/sessions',
                             passwords: 'users/passwords',
-                            confirmations: 'users/confirmations' }
+                            confirmations: 'users/confirmations',
+                            unlocks: 'users/unlocks' }
   # END: user section
 
   # BEGIN: static pages
