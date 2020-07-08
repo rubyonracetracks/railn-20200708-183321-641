@@ -22,6 +22,7 @@
 #          new_admin_unlock GET    /admins/unlock/new(.:format)                                                             admins/unlocks#new
 #              admin_unlock GET    /admins/unlock(.:format)                                                                 admins/unlocks#show
 #                           POST   /admins/unlock(.:format)                                                                 admins/unlocks#create
+#                     admin GET    /admins/:id(.:format)                                                                    admins#show
 #          new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
 #              user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
 #      destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
                             passwords: 'admins/passwords',
                             confirmations: 'admins/confirmations',
                             unlocks: 'admins/unlocks' }
+  resources :admins, only: [:show]
   # END: admin section
 
   # BEGIN: user section
