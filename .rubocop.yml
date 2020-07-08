@@ -104,6 +104,7 @@ Layout/LineLength:
 Style/ClassAndModuleChildren:
   Exclude:
     - test/test_helper.rb
+    - app/controllers/users/*
 # END: Style/ClassAndModuleChildren
 
 # BEGIN: Style/MixinUsage
@@ -116,4 +117,5 @@ Style/MixinUsage:
 Style/SymbolArray:
   Exclude:
     - Gemfile
+    - app/controllers/users/registrations_controller.rb
 # END: Style/SymbolArray

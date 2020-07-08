@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # BEGIN: needed for email confirmations
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # END: needed for email confirmations
 
   # BEGIN: mailcatcher configuration
   # From https://stackoverflow.com/questions/37684053/docker-connection-refused-for-every-other-running-services
