@@ -128,3 +128,4 @@ mod_app.sh
 #POSTGRES#init.sql
 #POSTGRES#.env/development/database
 gemsurance_report.html
+test/html_reports/

@@ -96,3 +96,4 @@ tmp/*
 *.swp
 *.swo
 
+test/html_reports/
