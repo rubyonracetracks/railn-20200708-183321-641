@@ -97,6 +97,7 @@ Layout/LineLength:
     - test/integration/*
     - test/test_helper.rb
     - test/helpers/application_helper_test.rb
+    - config/initializers/devise.rb
 # END: Layout/LineLength
 
 # BEGIN: Style/ClassAndModuleChildren
