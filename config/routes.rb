@@ -19,9 +19,9 @@
 #    new_admin_confirmation GET    /admins/confirmation/new(.:format)                                                       admins/confirmations#new
 #        admin_confirmation GET    /admins/confirmation(.:format)                                                           admins/confirmations#show
 #                           POST   /admins/confirmation(.:format)                                                           admins/confirmations#create
-#          new_admin_unlock GET    /admins/unlock/new(.:format)                                                             devise/unlocks#new
-#              admin_unlock GET    /admins/unlock(.:format)                                                                 devise/unlocks#show
-#                           POST   /admins/unlock(.:format)                                                                 devise/unlocks#create
+#          new_admin_unlock GET    /admins/unlock/new(.:format)                                                             admins/unlocks#new
+#              admin_unlock GET    /admins/unlock(.:format)                                                                 admins/unlocks#show
+#                           POST   /admins/unlock(.:format)                                                                 admins/unlocks#create
 #          new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
 #              user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
 #      destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
@@ -59,7 +59,8 @@ Rails.application.routes.draw do
              controllers: { registrations: 'admins/registrations',
                             sessions: 'admins/sessions',
                             passwords: 'admins/passwords',
-                            confirmations: 'admins/confirmations' }
+                            confirmations: 'admins/confirmations',
+                            unlocks: 'admins/unlocks' }
   # END: admin section
 
   # BEGIN: user section
