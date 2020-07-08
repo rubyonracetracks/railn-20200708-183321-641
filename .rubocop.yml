@@ -1,0 +1,117 @@
+Layout/EmptyComment:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Naming/MethodParameterName:
+  Exclude:
+    - test/test_helper.rb
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/SlicingWithRange:
+  Enabled: true
+
+# BEGIN: AllCops
+AllCops:
+  Exclude:
+    - bin/*
+    - config/initializers/content_security_policy.rb
+    - config/spring.rb
+    - db/migrate/*
+    - db/schema.rb
+    - mod/**/*
+    - tmp/**/*
+    - vendor/**/*
+# END: AllCops
+
+Bundler/OrderedGems:
+  Exclude:
+    - Gemfile
+
+# BEGIN: Layout/LineLength
+Layout/LineLength:
+  Exclude:
+    - config/application.rb
+    - config/environments/development.rb
+    - config/environments/production.rb
+    - config/initializers/assets.rb
+    - config/initializers/backtrace_silencers.rb
+    - config/initializers/new_framework_defaults.rb
+    - config/initializers/session_store.rb
+    - config/initializers/wrap_parameters.rb
+    - config/environments/production.rb
+    - config/environments/test.rb
+    - config/puma.rb
+    - config/routes.rb
+    - db/seeds.rb
+    - Gemfile
+    - Rakefile
+    - test/integration/*
+    - test/test_helper.rb
+# END: Layout/LineLength
+
+# BEGIN: Style/ClassAndModuleChildren
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb
+# END: Style/ClassAndModuleChildren
+
+# BEGIN: Style/MixinUsage
+Style/MixinUsage:
+  Exclude:
+    - bin/update
+# END: Style/MixinUsage
+
+# BEGIN: Style/SymbolArray
+Style/SymbolArray:
+  Exclude:
+    - Gemfile
+# END: Style/SymbolArray
