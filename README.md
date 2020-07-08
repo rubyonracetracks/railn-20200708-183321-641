@@ -1,4 +1,5 @@
 <!--- BEGIN: badges --->
+[![Build Status](https://travis-ci.com/rubyonracetracks/railn-20200708-183321-641.svg?branch=master)](https://travis-ci.com/rubyonracetracks/railn-20200708-183321-641)
 <!--- END: badges --->
 
 # Generic App Template
