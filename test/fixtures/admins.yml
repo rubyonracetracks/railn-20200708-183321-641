@@ -8,14 +8,86 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default(0), not null
+#  unlock_token           :string
+#  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
+#  username               :string
+#  super                  :boolean
 #
 # Indexes
 #
+#  index_admins_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_admins_on_email                 (email) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_admins_on_unlock_token          (unlock_token) UNIQUE
+#  index_admins_on_username              (username) UNIQUE
 #
 
-# These fixtures are disabled initially.
-# The original fixtures created by the Devise gem cause all tests to fail.
+elle_woods: 
+  username: 'ewoods'
+  name: 'Elle Woods'
+  email: 'elle_woods@example.com'
+  super: true
+  encrypted_password: <%= Admin.new.send(:password_digest, 'endorphins') %>
+  confirmed_at: <%= Time.zone.now %>
+
+vivian_kensington:
+  username: 'vkensington'
+  name: 'Vivian Kensington'
+  email: 'vivian_kensingston@example.com'
+  super: true
+  encrypted_password: <%= Admin.new.send(:password_digest, 'nice outfit') %>
+  confirmed_at: <%= Time.zone.now %>
+
+emmett_richmond:
+  username: 'erichmond'
+  name: 'Emmett Richmond'
+  email: 'emmett_richmond@example.com'
+  super: false
+  encrypted_password: <%= Admin.new.send(:password_digest, "new representation") %>
+  confirmed_at: <%= Time.zone.now %>
+  
+paulette_bonafonte:
+  username: 'pbonafonte'
+  name: 'Paulette Bonafonte'
+  email: 'paulette_bonafonte@example.com'
+  super: false
+  encrypted_password: <%= Admin.new.send(:password_digest, "Neptune's Beauty Nook") %>
+  confirmed_at: <%= Time.zone.now %>
+  
+professor_callahan:
+  username: 'pcallahan'
+  name: 'Professor Callahan'
+  email: 'professor_callahan@example.com'
+  super: true
+  encrypted_password: <%= Admin.new.send(:password_digest, 'Titanic guy') %>
+  confirmed_at: <%= Time.zone.now %>
+
+warner_huntington:
+  username: 'whuntington'
+  name: 'Warner Huntington'
+  email: 'warner_huntington@example.com'
+  super: false
+  encrypted_password: <%= Admin.new.send(:password_digest, 'need someone serious') %>
+  confirmed_at: <%= Time.zone.now %>
+
+<% 100.times do |n| %>
+user_<%= n %>:
+  name: <%= ['Zboncak', 'Zemlak', 'Ziemann', 'Zieme', 'Zulauf'].sample %>
+  username: <%= "z_admin_#{n}" %>
+  email: <%= Faker::Internet.email %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
+  confirmed_at: <%= Time.zone.now %>
+<% end %>
