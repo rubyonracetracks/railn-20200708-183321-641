@@ -19,19 +19,19 @@ services:
       - --port=3000
     ports:
       - "3000:3000"
-    #MAILCATCHER#links:
-      #MAILCATCHER#- mailcatcher
+    links:
+      - mailcatcher
     #POSTGRES#env_file:
       #POSTGRES#- .env/development/database
       #POSTGRES#- .env/development/web
     #POSTGRES#depends_on:
       #POSTGRES#- database
 
-  #MAILCATCHER#mailcatcher:
-    #MAILCATCHER#image: yappabe/mailcatcher
-    #MAILCATCHER#ports:
-      #MAILCATCHER#- "1025:1025"
-      #MAILCATCHER#- "1080:1080"
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
 
   #POSTGRES#database:
     #POSTGRES#image: postgres

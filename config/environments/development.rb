@@ -1,4 +1,11 @@
 Rails.application.configure do
+
+  # BEGIN: mailcatcher configuration
+  # From https://stackoverflow.com/questions/37684053/docker-connection-refused-for-every-other-running-services
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: 'mailcatcher', port: 1025 }
+  # END: mailcatcher configuration
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
