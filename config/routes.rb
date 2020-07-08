@@ -4,11 +4,11 @@
 #         new_admin_session GET    /admins/sign_in(.:format)                                                                admins/sessions#new
 #             admin_session POST   /admins/sign_in(.:format)                                                                admins/sessions#create
 #     destroy_admin_session DELETE /admins/sign_out(.:format)                                                               admins/sessions#destroy
-#        new_admin_password GET    /admins/password/new(.:format)                                                           devise/passwords#new
-#       edit_admin_password GET    /admins/password/edit(.:format)                                                          devise/passwords#edit
-#            admin_password PATCH  /admins/password(.:format)                                                               devise/passwords#update
-#                           PUT    /admins/password(.:format)                                                               devise/passwords#update
-#                           POST   /admins/password(.:format)                                                               devise/passwords#create
+#        new_admin_password GET    /admins/password/new(.:format)                                                           admins/passwords#new
+#       edit_admin_password GET    /admins/password/edit(.:format)                                                          admins/passwords#edit
+#            admin_password PATCH  /admins/password(.:format)                                                               admins/passwords#update
+#                           PUT    /admins/password(.:format)                                                               admins/passwords#update
+#                           POST   /admins/password(.:format)                                                               admins/passwords#create
 # cancel_admin_registration GET    /admins/cancel(.:format)                                                                 admins/registrations#cancel
 #    new_admin_registration GET    /admins/sign_up(.:format)                                                                admins/registrations#new
 #   edit_admin_registration GET    /admins/edit(.:format)                                                                   admins/registrations#edit
@@ -57,7 +57,8 @@ Rails.application.routes.draw do
   # BEGIN: admin section
   devise_for :admins,
              controllers: { registrations: 'admins/registrations',
-                            sessions: 'admins/sessions' }
+                            sessions: 'admins/sessions',
+                            passwords: 'admins/passwords' }
   # END: admin section
 
   # BEGIN: user section
