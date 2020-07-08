@@ -96,3 +96,10 @@ end
 # Minitest
 gem 'minitest', '5.14.1', require: false, group: :testing
 gem 'minitest-reporters', '1.4.2', require: false, group: :testing # Adds special features to tests
+
+# BEGIN: Capybara enhancements
+group :test do
+  gem 'capybara-email', '3.0.2'
+  gem 'capybara-slow_finder_errors', '0.1.5'
+end
+# END: Capybara enhancements
