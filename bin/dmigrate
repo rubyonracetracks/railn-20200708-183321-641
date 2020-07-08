@@ -1,0 +1,11 @@
+#!/bin/bash
+set +e
+
+# Necessary for running the tests when using PostgreSQL instead of SQLite
+#POSTGRES#echo '-----------------------------------------------------'
+#POSTGRES#echo 'bundle exec rake db:create db:migrate db:test:prepare'
+#POSTGRES#docker-compose run --rm web bundle exec rake db:create db:migrate db:test:prepare
+
+echo '---------------------------'
+echo 'bundle exec rake db:migrate'
+docker-compose run --rm web bundle exec rake db:migrate

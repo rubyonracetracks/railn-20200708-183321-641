@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo '---------------------'
+echo 'bundle exec rake test'
+docker-compose run --rm web bundle exec rake test
