@@ -1,9 +1,9 @@
 # == Route Map
 #
 #                    Prefix Verb   URI Pattern                                                                              Controller#Action
-#         new_admin_session GET    /admins/sign_in(.:format)                                                                devise/sessions#new
-#             admin_session POST   /admins/sign_in(.:format)                                                                devise/sessions#create
-#     destroy_admin_session DELETE /admins/sign_out(.:format)                                                               devise/sessions#destroy
+#         new_admin_session GET    /admins/sign_in(.:format)                                                                admins/sessions#new
+#             admin_session POST   /admins/sign_in(.:format)                                                                admins/sessions#create
+#     destroy_admin_session DELETE /admins/sign_out(.:format)                                                               admins/sessions#destroy
 #        new_admin_password GET    /admins/password/new(.:format)                                                           devise/passwords#new
 #       edit_admin_password GET    /admins/password/edit(.:format)                                                          devise/passwords#edit
 #            admin_password PATCH  /admins/password(.:format)                                                               devise/passwords#update
@@ -56,7 +56,8 @@
 Rails.application.routes.draw do
   # BEGIN: admin section
   devise_for :admins,
-             controllers: { registrations: 'admins/registrations' }
+             controllers: { registrations: 'admins/registrations',
+                            sessions: 'admins/sessions' }
   # END: admin section
 
   # BEGIN: user section
