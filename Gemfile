@@ -71,6 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BEGIN: gems for test_code.sh
 group :development, :testing do
+  gem 'rails_best_practices', '1.20.0'
   gem 'rubocop', '0.87.1' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
 end
 # END: gems for test_code.sh
