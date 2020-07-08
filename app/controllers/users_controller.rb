@@ -11,11 +11,22 @@ class UsersController < ApplicationController
   end
 
   # BEGIN: index
+  # BEGIN: index
+  # rubocop:disable Metrics/AbcSize
   def index
-    @users = User.all
-    @users = @users.order('name asc').page(params[:page]).per(50)
+    @search = User.ransack(params[:q].presence)
+    # NOTE: The following line specifies the sort order.
+    # This is reflected in the default sort criteria shown.
+    # The user is free to remove these default criteria.
+    @search.sorts = 'name asc' if @search.sorts.empty?
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @users = @search.result
     @users_count = @users.count
+    @users = @users.page(params[:page]).per(50)
   end
+  # rubocop:enable Metrics/AbcSize
+  # END: index
   # END: index
   # END: ACTION SECTION
 
