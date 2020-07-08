@@ -10,3 +10,9 @@ bin/drbp
 echo '----------'
 echo 'git status'
 git status
+
+bash outline-short.sh
+
+echo '----------'
+echo 'git status'
+git status

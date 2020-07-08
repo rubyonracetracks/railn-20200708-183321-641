@@ -115,3 +115,11 @@ gem 'line_containing', '0.1.2'
 gem 'remove_double_blank', '0.0.0'
 gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
+
+# BEGIN: for outline.sh
+group :development do
+  gem 'annotate', '3.1.1' # Adds comments listing parameters and the output of "rails routes"
+  # gem 'railroady' # Generates block diagrams
+  # gem 'rails-erd' # Generates block diagrams
+end
+# END: for outline.sh
