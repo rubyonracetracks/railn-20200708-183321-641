@@ -97,3 +97,6 @@ tmp/*
 *.swo
 
 test/html_reports/
+
+# Keep SimpleCov test results out of the source code
+coverage
