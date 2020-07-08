@@ -43,6 +43,7 @@
 #           new_user_unlock GET    /users/unlock/new(.:format)                                                              users/unlocks#new
 #               user_unlock GET    /users/unlock(.:format)                                                                  users/unlocks#show
 #                           POST   /users/unlock(.:format)                                                                  users/unlocks#create
+#                      user GET    /users/:id(.:format)                                                                     users#show
 #                      root GET    /                                                                                        static_pages#home
 #                     about GET    /about(.:format)                                                                         static_pages#about
 #                   contact GET    /contact(.:format)                                                                       static_pages#contact
@@ -70,6 +71,7 @@ Rails.application.routes.draw do
                             passwords: 'users/passwords',
                             confirmations: 'users/confirmations',
                             unlocks: 'users/unlocks' }
+  resources :users, only: [:show]
   # END: user section
 
   # BEGIN: static pages
