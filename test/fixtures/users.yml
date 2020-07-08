@@ -8,14 +8,86 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default(0), not null
+#  unlock_token           :string
+#  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
+#  username               :string
 #
 # Indexes
 #
+#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_unlock_token          (unlock_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
 #
 
-# These fixtures are disabled initially.
-# The original fixtures created by the Devise gem cause all tests to fail.
+connery:
+  name: 'Sean Connery'
+  username: 'sconnery'
+  email: 'sean_connery@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'Goldfinger') %>
+  confirmed_at: <%= Time.zone.now %>
+
+lazenby:
+  name: 'George Lazenby'
+  username: 'glazenby'
+  email: 'george_lazenby@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'ohmss1969') %>
+  confirmed_at: <%= Time.zone.now %>
+
+moore:
+  name: 'Roger Moore'
+  username: 'rmoore'
+  email: 'roger_moore@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'moonraker') %>
+  confirmed_at: <%= Time.zone.now %>
+
+dalton:
+  name: 'Timothy Dalton'
+  username: 'tdalton'
+  email: 'timothy_dalton@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'daylights') %>
+  confirmed_at: <%= Time.zone.now %>
+
+brosnan:
+  name: 'Pierce Brosnan'
+  username: 'pbrosnan'
+  email: 'pierce_brosnan@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'goldeneye') %>
+  confirmed_at: <%= Time.zone.now %>
+
+craig:
+  name: 'Daniel Craig'
+  username: 'dcraig'
+  email: 'daniel_craig@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'reboot007') %>
+  confirmed_at: <%= Time.zone.now %>
+
+blofeld:
+  name: 'Ernst Stavro Blofeld'
+  username: 'eblofeld'
+  email: 'ernst_blofeld@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'stainless steel') %>
+  confirmed_at: <%= Time.zone.now %>
+
+<% 100.times do |n| %>
+user_<%= n %>:
+  name: <%= ['Zboncak', 'Zemlak', 'Ziemann', 'Zieme', 'Zulauf'].sample %>
+  username: <%= "z_user_#{n}" %>
+  email: <%= Faker::Internet.email %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
+  confirmed_at: <%= Time.zone.now %>
+<% end %>
